@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz IA — Caderno de Estudos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="align">
+      <div class="stage">
+        <div class="booklet">
+          <section id="screen-config">
+            <header>
+              <ul>
+                <li><button class="btn-nav" id="btn-inicio">Início</button></li>
+                <li><button class="btn-nav" id="btn-historico">Histórico de testes</button></li>
+              </ul>
+            </header>
+            <h1>Monte seu Quiz!</h1>
+            <p class="subtitle">Personalize seu questionário!</p>
+
+            <div class="field">
+              <label for="tema">Tema de estudo:</label>
+              <input
+                type="text"
+                id="tema"
+                value="Farmacia Geral"
+                placeholder="EX: Farmacologia, Embriologia, Anatomia, etc."
+              />
+            </div>
+
+            <div class="row-2">
+              <div class="field">
+                <label for="quantidade">Questões:</label>
+                <input
+                  type="number"
+                  id="quantidade"
+                  value="5"
+                  min="1"
+                  max="20"
+                />
+              </div>
+              <div class="field">
+                <label for="dificuldade">Dificuldade:</label>
+                <select id="dificuldade">
+                  <option value="fácil">Fácil</option>
+                  <option value="intermediário" selected>Intermediário</option>
+                  <option value="difícil">Difícil</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="btn" id="btn-iniciar">
+              Começar Teste <span class="arrow"> -> </span>
+            </button>
+
+            <div class="loader-row hidden" id="loader">
+              <span class="dot-pulse"></span>
+            </div>
+            <div class="error-box hidden" id="error-box"></div>
+
+            <footer class="note">
+              quiz gerado por IA! -- Verifique a veracidade das respostas.
+            </footer>
+          </section>
+          <section id="screen-quiz" class="hidden">
+            <div class="progress-row">
+              <p
+                class="eyebrow"
+                style="padding-left: 0; margin: 0"
+                id="quiz-tema"
+              >
+                Tema
+              </p>
+              <span class="q-count" id="q-count">Questão 1 de 5</span>
+            </div>
+            <div class="progress-track">
+              <div class="bar-bg">
+                <div class="bar-fill" id="bar-fill" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <h2 class="question-text" id="question-text">
+              Carregando pergunta...
+            </h2>
+            <div class="options" id="options-list"></div>
+          </section>
+
+          <section id="screen-result" class="hidden">
+            <p class="eyebrow">Folha corrigida</p>
+            <h1 style="padding-left: 24px">Resultado</h1>
+
+            <div class="stamp-wrap">
+              <div class="stamp" id="stamp">
+                <span class="pct" id="stamp-pct">0%</span>
+                <span class="lbl" id="stamp-lbl">acerto</span>
+              </div>
+            </div>
+            <p class="score-line">
+              <strong id="score-fraction">0/0</strong> respostas corretas
+            </p>
+
+            <div id="review-list"></div>
+
+            <button class="btn retry-btn" id="btn-retry">
+              Fazer novo quiz
+            </button>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
